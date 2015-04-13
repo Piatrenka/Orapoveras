@@ -1,15 +1,15 @@
 -- Name         Type           Nullable  Default  Comments
--- MATCHID      NUMBER(6)                         Âíóòðåííèé íîìåð ìàò÷à
--- MATCHNAME    VARCHAR2(255)  Y                  Íàèìåíîâàíèå ìàò÷à
--- MATCHDATE    DATE           Y                  Äàòà è âðåìÿ ìàò÷à
--- TEAMID1      NUMBER(6)      Y                  Êîìàíäà õîçÿéêà
--- TEAMID2      NUMBER(6)      Y                  Êîìàíäà ãîñòü
--- STADIUMID    NUMBER(6)      Y                  Âíóòðåííèé íîìåð ñòàäèîíà
--- SCORE1       NUMBER(6)      Y                  Çàáèëè õîçÿåâà
--- SCORE2       NUMBER(6)      Y                  Çàáèëè ãîñòè
--- MATCHSTATUS  VARCHAR2(255)  Y                  Ñîñòîÿíèå ìàò÷à
--- Íóæíà êîìàíäà è âñå åå ðåçóëüòàòû ñîáðàííûå ïî ïðèíöèïó
--- Èãðàëà, âûèãðàëà, íè÷üÿ, ïðîèãðàëà, çàáèëà, ïðîïóñòèëà, ðàçíèöà, î÷êîâ
+-- MATCHID      NUMBER(6)                         Ð’Ð½ÑƒÑ‚Ñ€ÐµÐ½Ð½Ð¸Ð¹ Ð½Ð¾Ð¼ÐµÑ€ Ð¼Ð°Ñ‚Ñ‡Ð°
+-- MATCHNAME    VARCHAR2(255)  Y                  ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¼Ð°Ñ‚Ñ‡Ð°
+-- MATCHDATE    DATE           Y                  Ð”Ð°Ñ‚Ð° Ð¸ Ð²Ñ€ÐµÐ¼Ñ Ð¼Ð°Ñ‚Ñ‡Ð°
+-- TEAMID1      NUMBER(6)      Y                  ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° Ñ…Ð¾Ð·ÑÐ¹ÐºÐ°
+-- TEAMID2      NUMBER(6)      Y                  ÐšÐ¾Ð¼Ð°Ð½Ð´Ð° Ð³Ð¾ÑÑ‚ÑŒ
+-- STADIUMID    NUMBER(6)      Y                  Ð’Ð½ÑƒÑ‚Ñ€ÐµÐ½Ð½Ð¸Ð¹ Ð½Ð¾Ð¼ÐµÑ€ ÑÑ‚Ð°Ð´Ð¸Ð¾Ð½Ð°
+-- SCORE1       NUMBER(6)      Y                  Ð—Ð°Ð±Ð¸Ð»Ð¸ Ñ…Ð¾Ð·ÑÐµÐ²Ð°
+-- SCORE2       NUMBER(6)      Y                  Ð—Ð°Ð±Ð¸Ð»Ð¸ Ð³Ð¾ÑÑ‚Ð¸
+-- MATCHSTATUS  VARCHAR2(255)  Y                  Ð¡Ð¾ÑÑ‚Ð¾ÑÐ½Ð¸Ðµ Ð¼Ð°Ñ‚Ñ‡Ð°
+-- ÐÑƒÐ¶Ð½Ð° ÐºÐ¾Ð¼Ð°Ð½Ð´Ð° Ð¸ Ð²ÑÐµ ÐµÐµ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹ ÑÐ¾Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ð¾ Ð¿Ñ€Ð¸Ð½Ñ†Ð¸Ð¿Ñƒ
+-- Ð˜Ð³Ñ€Ð°Ð»Ð°, Ð²Ñ‹Ð¸Ð³Ñ€Ð°Ð»Ð°, Ð½Ð¸Ñ‡ÑŒÑ, Ð¿Ñ€Ð¾Ð¸Ð³Ñ€Ð°Ð»Ð°, Ð·Ð°Ð±Ð¸Ð»Ð°, Ð¿Ñ€Ð¾Ð¿ÑƒÑÑ‚Ð¸Ð»Ð°, Ñ€Ð°Ð·Ð½Ð¸Ñ†Ð°, Ð¾Ñ‡ÐºÐ¾Ð²
 create or replace view vGroupsResults as
 select t.*,
 (select count(*)from vmatches m where (m.teamid1 = t.teamid or m.teamid2 = t.teamid) and m.IsPlayed > 0) Played,

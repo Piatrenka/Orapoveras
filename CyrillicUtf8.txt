@@ -1,0 +1,5 @@
+А этот файл подготовлен на macbook pro
+Он содержит кириллицу, но уже в кодировке utf-8
+
+https://github.com/Piatrenka/Orapoveras.git
+
